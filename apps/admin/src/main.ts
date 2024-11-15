@@ -1,9 +1,9 @@
 import {NestFactory} from '@nestjs/core';
 import {NestExpressApplication} from '@nestjs/platform-express';
 import {ConfigService} from '@nestjs/config';
-import {Logger} from '@core/logger';
+import {Logger} from '@shareable/logger';
 import {AppModule} from './modules/app.module';
-import {cors, exceptionFilterPipe, helmet, swagger, validationPipe} from '@core/utility';
+import {cors, exceptionFilterPipe, helmet, swagger, validationPipe} from '@shareable/utility';
 
 
 async function bootstrap() {

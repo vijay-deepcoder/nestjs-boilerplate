@@ -1,7 +1,7 @@
 import {Body, Controller, HttpCode, HttpStatus, Post} from '@nestjs/common';
 import {AuthService} from './auth.service';
 import {ApiBadRequestResponse, ApiOkResponse, ApiOperation, ApiTags} from '@nestjs/swagger';
-import {Response} from '@core/response.interceptor';
+import {Response} from '@shareable/response.interceptor';
 import {LoginReqDto, LoginResDto} from './dtos';
 
 @Controller('auth')

@@ -1,10 +1,10 @@
 import {DocumentBuilder, SwaggerModule} from '@nestjs/swagger';
 import {NestExpressApplication} from '@nestjs/platform-express';
-import {EnvironmentEnum} from '@core/enum/environment.enum';
+import {EnvironmentEnum} from '@shareable/enum/environment.enum';
 import * as basicAuth from 'express-basic-auth';
-import {HttpExceptionFilter} from '@core/exception/http-exception.filter';
+import {HttpExceptionFilter} from '@shareable/exception/http-exception.filter';
 import {ValidationError, ValidationPipe} from '@nestjs/common';
-import {ValidationException} from '@core/exception/validation-exception';
+import {ValidationException} from '@shareable/exception/validation-exception';
 
 interface SwaggerSeverInterface {
     url: string;

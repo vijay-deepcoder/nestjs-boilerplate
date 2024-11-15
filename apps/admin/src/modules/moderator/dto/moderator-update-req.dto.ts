@@ -2,7 +2,7 @@ import {IsEmail, IsNotEmptyObject, IsObject, IsString, Length} from 'class-valid
 import {ApiProperty} from '@nestjs/swagger';
 
 import {PermissionDto} from './permission.dto';
-import {IsNotBlank} from '@core/decorators/is-not-blank.decorator';
+import {IsNotBlank} from '@shareable/decorators/is-not-blank.decorator';
 
 export class ModeratorUpdateDtoReq {
     @IsString()

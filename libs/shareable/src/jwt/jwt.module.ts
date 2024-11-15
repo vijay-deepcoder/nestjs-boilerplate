@@ -1,7 +1,7 @@
 import {Global, Module} from '@nestjs/common';
 import {ConfigService} from '@nestjs/config';
 import {JwtModule as baseModule} from '@nestjs/jwt';
-import {JwtService} from '@core/jwt/jwt.service';
+import {JwtService} from '@shareable/jwt/jwt.service';
 
 const jwtFactory = {
     useFactory: (config: ConfigService) => {

@@ -1,82 +1,88 @@
-import {Column, CreateDateColumn, Entity, Index, PrimaryGeneratedColumn, UpdateDateColumn} from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  Index,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
-import {StatusEnum, UserEnum} from '@core/enum';
-import {ApiException, ErrorCodes} from '@core/exception';
-import {PermissionDto} from '@admin/modules/moderator/dto';
-
+import { StatusEnum, UserEnum } from '@shareable/enum';
+import { ApiException, ErrorCodes } from 'libs/shareable/src/exception';
+import { PermissionDto } from '@admin/modules/moderator/dto';
 
 @Entity({
-    name: 'moderators',
+  name: 'moderators',
 })
 export class ModeratorEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: string;
 
-    @Column({
-        nullable: true,
-        name: 'first_name',
-    })
-    @Index()
-    firstName: string;
+  @Column({
+    nullable: true,
+    name: 'first_name',
+  })
+  @Index()
+  firstName: string;
 
-    @Column({
-        nullable: true,
-        name: 'last_name',
-    })
-    @Index()
-    lastName: string;
+  @Column({
+    nullable: true,
+    name: 'last_name',
+  })
+  @Index()
+  lastName: string;
 
-    @Column({
-        nullable: true,
-        name: 'profile_image',
-    })
-    @Index()
-    profileImage?: string | null;
+  @Column({
+    nullable: true,
+    name: 'profile_image',
+  })
+  @Index()
+  profileImage?: string | null;
 
-    @Column()
-    @Index()
-    email: string;
+  @Column()
+  @Index()
+  email: string;
 
-    @Column()
-    password: string;
+  @Column()
+  password: string;
 
-    @Column({
-        enum: StatusEnum,
-        type: 'enum',
-        default: StatusEnum.Active,
-    })
-    status: number;
+  @Column({
+    enum: StatusEnum,
+    type: 'enum',
+    default: StatusEnum.Active,
+  })
+  status: number;
 
-    @Column({
-        enum: UserEnum,
-        type: 'enum',
-        default: UserEnum.moderator,
-    })
-    type: UserEnum;
+  @Column({
+    enum: UserEnum,
+    type: 'enum',
+    default: UserEnum.moderator,
+  })
+  type: UserEnum;
 
-    @Column({
-        type: 'jsonb',
-        nullable: true,
-    })
-    permissions: PermissionDto;
+  @Column({
+    type: 'jsonb',
+    nullable: true,
+  })
+  permissions: PermissionDto;
 
-    @CreateDateColumn({
-        name: 'created_at',
-    })
-    createdAt: Date;
+  @CreateDateColumn({
+    name: 'created_at',
+  })
+  createdAt: Date;
 
-    @UpdateDateColumn({
-        name: 'updated_at',
-    })
-    updatedAt: Date;
+  @UpdateDateColumn({
+    name: 'updated_at',
+  })
+  updatedAt: Date;
 
-    get profileImageUri() {
-        return this.profileImage;
+  get profileImageUri() {
+    return this.profileImage;
+  }
+
+  isActiveCheck() {
+    if (this.status == StatusEnum.InActive) {
+      throw new ApiException(ErrorCodes.AccountBan);
     }
-
-    isActiveCheck() {
-        if (this.status == StatusEnum.InActive) {
-            throw new ApiException(ErrorCodes.AccountBan);
-        }
-    }
+  }
 }

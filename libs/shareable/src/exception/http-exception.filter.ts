@@ -3,7 +3,7 @@ import {Response} from 'express';
 import {ApiException} from './api.exception';
 import {ErrorCodes, Exceptions} from './exceptions';
 import {EntityNotFoundError} from 'typeorm';
-import {ValidationException} from '@core/exception/validation-exception';
+import {ValidationException} from '@shareable/exception/validation-exception';
 
 @Catch(HttpException, EntityNotFoundError)
 export class HttpExceptionFilter implements ExceptionFilter {

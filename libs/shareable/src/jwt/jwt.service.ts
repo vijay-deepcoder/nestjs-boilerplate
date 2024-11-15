@@ -1,10 +1,10 @@
 import {Injectable} from '@nestjs/common/decorators';
 import {JwtService as JwtNestService} from '@nestjs/jwt';
-import {ApiException, ErrorCodes} from '@core/exception';
+import {ApiException, ErrorCodes} from '@shareable/exception';
 import {ConfigService} from '@nestjs/config';
 import {Request} from 'express';
-import {getTokenFromHeader} from '@core/utility';
-import {JwtInterface} from '../../../../apps/admin/src/interface';
+import {getTokenFromHeader} from '@shareable/utility';
+import {JwtInterface} from '@admin/interface';
 
 
 @Injectable()

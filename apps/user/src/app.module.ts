@@ -1,7 +1,7 @@
 import {Module} from '@nestjs/common';
-import {ConfigurationModule} from '@core/configuration/configuration.module';
-import {Logger} from '@core/logger';
-import {DatabaseModule} from '@core/database/database.module';
+import {ConfigurationModule} from '@shareable/configuration/configuration.module';
+import {Logger} from '@shareable/logger';
+import {DatabaseModule} from '@shareable/database/database.module';
 
 @Module({
     imports: [ConfigurationModule, DatabaseModule],

@@ -18,12 +18,6 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@core": [
-        "libs/core/src"
-      ],
-      "@core/*": [
-        "libs/core/src/*"
-      ],
       "@shareable": [
         "libs/shareable/src"
       ],

@@ -1,6 +1,6 @@
-import {UserEnum} from '@core/enum';
+import { UserEnum } from '@shareable/enum';
 
 export interface JwtInterface {
-    id: number,
-    for: UserEnum,
+  id: string;
+  for: UserEnum;
 }

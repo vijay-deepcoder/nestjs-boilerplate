@@ -1,5 +1,5 @@
 import * as process from 'process';
-import {EnvironmentEnum} from '@core/enum/environment.enum';
+import {EnvironmentEnum} from '@shareable/enum/environment.enum';
 
 interface SwaggerServer {
     url: string,

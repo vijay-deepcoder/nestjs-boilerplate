@@ -19,11 +19,11 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config apps/user/test/jest-e2e.json",
     "typeorm": "env-cmd ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
-    "migration:generate": "npm run typeorm -- --dataSource=libs/core/src/database/data-source.ts migration:generate",
+    "migration:generate": "npm run typeorm -- --dataSource=libs/shareable/src/database/data-source.ts migration:generate",
     "migration:create": "npm run typeorm -- migration:create",
-    "migration:run": "npm run typeorm -- --dataSource=libs/core/src/database/data-source.ts migration:run",
-    "migration:revert": "npm run typeorm -- --dataSource=libs/core/src/database/data-source.ts migration:revert",
-    "schema:drop": "npm run typeorm -- --dataSource=libs/core/src/database/data-source.ts schema:drop"
+    "migration:run": "npm run typeorm -- --dataSource=libs/shareable/src/database/data-source.ts migration:run",
+    "migration:revert": "npm run typeorm -- --dataSource=libs/shareable/src/database/data-source.ts migration:revert",
+    "schema:drop": "npm run typeorm -- --dataSource=libs/shareable/src/database/data-source.ts schema:drop"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
@@ -88,7 +88,6 @@
       "<rootDir>/libs/"
     ],
     "moduleNameMapper": {
-      "^@core/core(|/.*)$": "<rootDir>/libs/core/src/$1",
       "^@shareable/shareable(|/.*)$": "<rootDir>/libs/shareable/src/$1"
     }
   }

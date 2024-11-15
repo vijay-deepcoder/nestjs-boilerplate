@@ -1,5 +1,5 @@
 import {HttpException} from '@nestjs/common';
-import {Exceptions} from '@core/exception/exceptions';
+import {Exceptions} from '@shareable/exception/exceptions';
 
 export class ApiException extends HttpException {
     private data: { msg: any };
